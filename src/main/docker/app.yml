@@ -1,0 +1,14 @@
+version: '2'
+services:
+    jhipster_bfpoc-app:
+        image: jhipster_bfpoc
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://jhipster_bfpoc-mysql:3306/jhipster_bfpoc?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    jhipster_bfpoc-mysql:
+        extends:
+            file: mysql.yml
+            service: jhipster_bfpoc-mysql
